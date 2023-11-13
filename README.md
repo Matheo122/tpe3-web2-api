@@ -43,7 +43,6 @@ gmail:matheopacenti1@gmail.com
 etc....
  
 
-Los servicios brindados por la API deben cumplir unos requerimientos mínimos* pero idealmente se debe pensar alguna idea original que se adapte a su contexto, para este punto hice este endpoint
 - GET localhost/tpe3-web2-api/api/products/?category=2:
 trae productos por categoria(categorias disponibles: 1,2 y 3).
 
