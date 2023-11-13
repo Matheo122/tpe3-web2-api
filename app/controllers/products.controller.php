@@ -67,9 +67,9 @@ class Controller{
             $name = $body->nombre;
 
             $this->productModel->updateDataProduct($category,$description,$talla,$price,$name,$id);
-            $this->viewApi->response('product id=' . $id . ' actualizada con éxito', 200);
+            $this->viewApi->response('product id=' . $id . ' actualizada con éxito', 201);
         }else {
-        $this->viewApi->response('product id= ' . $id . ' not found', 404);
+        $this->viewApi->response('product id= ' . $id . ' not found', 400);
         }
     }
 
