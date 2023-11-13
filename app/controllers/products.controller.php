@@ -37,10 +37,10 @@ class Controller{
         } elseif (isset($_GET['page'])) { // localhost/tpe3-web2-api/api/products/?page=2
             $page = $_GET['page'];
             $products = $this->productModel->getProductsPaginated($page);
-            if ($products) {
+            if ($products && $page) {
                 return $this->viewApi->response($products, 200);
             } else {
-                return $this->viewApi->response('no existe productos con ese rango de pagina', 404);
+                return $this->viewApi->response('no existe productos con ese rango de pagina', 400);
             }
         } else {
             $products = $this->productModel->getProducts();
@@ -67,9 +67,9 @@ class Controller{
             $name = $body->nombre;
 
             $this->productModel->updateDataProduct($category,$description,$talla,$price,$name,$id);
-            $this->viewApi->response('product id=' . $id . ' actualizada con éxito', 201);
+            $this->viewApi->response('product id = ' . $id . ' actualizada con éxito', 201);
         }else {
-        $this->viewApi->response('product id= ' . $id . ' not found', 400);
+        $this->viewApi->response('product id = ' . $id . ' not found', 400);
         }
     }
 
