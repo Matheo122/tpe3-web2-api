@@ -13,7 +13,6 @@ $router = new Router();
                 //    ENDPOINT, VERBO, Controller,     METODO
 $router->addRoute("products", "GET", "Controller", "getAll");
 $router->addRoute("products/:ID", "GET", "Controller", "getProductById");
-$router->addRoute("productss/:ID", "GET", "Controller", "getProductByPag");
 
 $router->addRoute("products/:ID", "PUT", "Controller", "updateProducts");
 $router->addRoute("products/:ID", "DELETE", "Controller", "deleteProduct");

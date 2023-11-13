@@ -15,9 +15,6 @@ class Controller{
         return json_decode($this->data);
     }
 
-    public function orderASCorDESC($order) {
-
-    }
     // localhost/tpe3-web2-api/api/products/?sortby=precio&order=ASC
     function getAll($params = NULL){
         if (isset($_GET['sortby']) && isset($_GET['order'])) {
@@ -58,7 +55,6 @@ class Controller{
     //     "precio": 223,
     //     "nombre": "Black madera"
     // }
-    // hacer que cuando cambie una categoria y la misma no existe tire error
     public function updateProducts($params = []) {
         $id = $params[':ID'];
         $productId = $this->productModel->getProductById($id);
@@ -69,28 +65,14 @@ class Controller{
             $talla = $body->talla;
             $price = $body->precio;
             $name = $body->nombre;
-            var_dump($category, $description, $talla, $price, $name);
 
             $this->productModel->updateDataProduct($category,$description,$talla,$price,$name,$id);
-
             $this->viewApi->response('product id=' . $id . ' actualizada con éxito', 200);
         }else {
-            // poner 400 si falta un campo del put y 404 si esta mal o salta error
         $this->viewApi->response('product id= ' . $id . ' not found', 404);
         }
-
-
     }
 
-    public function productsSortedAsc(){
-        $products = $this->productModel->productsSortedAsc();
-        $this->viewApi->response($products, 200);
-    }
-
-    public function productsSortedDesc(){
-        $products = $this->productModel->productsSortedDesc();
-        $this->viewApi->response($products, 200);
-    }
     // localhost/tpe3-web2-api/api/products/68
     public function getProductById($params = NULL){
         $id = $params[':ID'];
@@ -112,18 +94,5 @@ class Controller{
             $this->viewApi->response('el producto con id= ' . $id . ' no existe, no se elimino ningun producto', 404);
         }
     }
-    // localhost/tpe3-web2-api/api/productss/products?page3
-    public function getProductByPag($params = NULL){
-        $page = isset($_GET['page']) ? $_GET['page'] : 1;
-
-        $productos = $this->productModel->getProductsByPag($page);
-
-        if (isset($productos)) {
-            $this->viewApi->response($productos, 200);
-        } else {
-            $this->viewApi->response(['response' => 'Bad Request'], 400);
-        }
-    }
-
     
 }
