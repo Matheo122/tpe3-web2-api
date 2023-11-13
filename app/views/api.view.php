@@ -5,7 +5,7 @@
             // le decimos al cliente que es un json  lo que estamos mandando
             header("content-Type: application/json");
             // le decimos el estado, si es 204 etc
-            header("HTTP/1.1 {$status} " . $this->_requestStatus($status));
+            header("HTTP/1.1 {$status}" . $this->_requestStatus($status));
             // mandamos los datos del recurso
             echo json_encode($data); 
         }
