@@ -16,7 +16,7 @@ gmail:matheopacenti1@gmail.com
 #### localhost/tpe3-web2-api/api/products
 - GET /products: dejando la URL como esta en la linea 16 devuelve todos los productos 
 >
-[
+
     {
         "id_producto": 72,
         "categoria": 4,
@@ -42,7 +42,7 @@ gmail:matheopacenti1@gmail.com
         "nombre": "Black woodd"
     }
 etc....
- ]
+ 
 
 Los servicios brindados por la API deben cumplir unos requerimientos mínimos* pero idealmente se debe pensar alguna idea original que se adapte a su contexto, para este punto hice este endpoint
 - GET localhost/tpe3-web2-api/api/products/?category=2:
