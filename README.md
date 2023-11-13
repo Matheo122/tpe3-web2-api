@@ -16,7 +16,6 @@ gmail:matheopacenti1@gmail.com
 #### localhost/tpe3-web2-api/api/products
 - GET /products: dejando la URL como esta en la linea 16 devuelve todos los productos 
 >
-
     {
         "id_producto": 72,
         "categoria": 4,
